@@ -1,2 +1,2 @@
-# TOGETHER #
+# Together #
 
