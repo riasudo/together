@@ -5,7 +5,7 @@ export default function StudentCard (props){
     console.log(props.data);
     return (
         <li className="student-card" key={id}>
-            <Link to={"/student"+ id}>{name}</Link>
+            <Link to={"/student/"+ id}>{name}</Link>
         </li>
     )
 }

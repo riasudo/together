@@ -6,7 +6,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import ProgramCard from './components/Programs/ProgramCard';
+
 import ProgramDetails from './components/Programs/ProgramDetails';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
       <Switch>
         <Route path="/" exact component={Landing} />
-        <Route path="/student" exact component={Student}/>
+        <Route path="/student/:id" exact component={Student}/>
         <Route path="/program/:id" component={ProgramDetails}/>
 
       </Switch>
