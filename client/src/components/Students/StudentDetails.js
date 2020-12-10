@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ProgramList from "./Programs/ProgramList";
+import ProgramList from "../Programs/ProgramList";
 
 
 export default class Students extends Component {

@@ -1,6 +1,5 @@
-import './App.css';
 import Landing from "./components/Landing";
-import Student from "./components/Student";
+import Student from "./components/Students/StudentDetails";
 import {
   BrowserRouter as Router,
   Switch,
