@@ -2,18 +2,20 @@
 
 module.exports = [
     {
-        name: "Charlie",
+        id: 1,
+        first_name: "Charlie",
+        last_name: "Smith",
         dob: "2009/01/25",
-        address: "123 example St",
-        city: "Example City",
+        address: "123 example St, Example City",
         country: "Example Country",
         phone: "123-456-7890"
     },
     {
-        name: "Jane",
+        id: 2,
+        first_name: "Jane",
+        last_name: "Doe",
         dob: "2004/01/25",
-        address: "345 example St",
-        city: "Example City",
+        address: "345 example St, Example City",
         country: "Example Country",
         phone: "012-345-6789"
     }
