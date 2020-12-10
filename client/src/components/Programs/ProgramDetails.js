@@ -43,7 +43,7 @@ export default class ProgramDetails extends Component{
             <div className="program-details">
                 <div className="program-details__header">
                     <h2 className="program-details__name">{name}</h2>
-                    <p className="program-details-level">Current Progress: {index}</p>
+                    <p className="program-details__level">Current Progress: {index}</p>
                     <p className="program-details__category">{category}</p>
                 </div>
                 <div className="program-details__completion">
@@ -51,7 +51,9 @@ export default class ProgramDetails extends Component{
                     <p className="program-details__current">Current Completion: {currentCorrect + "/" + currentTrial}</p>
                 </div>
                 <div className="program-details__info">
+                    <h3 className="program-details__label">Goal: </h3>
                     <p className="program-details__goal">{description}</p>
+                    <h3 className="program-details__label">Task: </h3>
                     <p className="program-details__task">{task}</p>
                 </div>
                 

@@ -1,0 +1,39 @@
+.program-details{
+    width: 30rem;
+    height: 40rem;
+    margin: 20rem;
+    border-radius: 1rem;
+    background-color:$offwhite;
+    box-shadow: lightgray 4px 4px;
+
+    &__header{
+        @include flex(row, space-around, center);
+        flex-wrap: wrap;
+        padding: 2rem;
+        background-color: $teal;
+        border-radius: 1rem 1rem 0 0;
+    }
+    &__name{
+        width: 60%;
+        color: white;
+    }
+    &__level{
+        margin-left: auto;
+        color: white;
+    }
+    &__category{
+        margin-left: auto;
+        color: white;
+
+    }
+
+    &__completion{
+        padding: 1rem 2rem 0 ;
+    }
+    &__info{
+        padding: 0rem 2rem;
+    }
+    &__label{
+        padding: 1rem 0 0 0;
+    }
+}
