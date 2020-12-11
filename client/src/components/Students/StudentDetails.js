@@ -4,6 +4,15 @@ import ProgramList from "../Programs/ProgramList";
 
 export default class Students extends Component {
     state= {
+        student: {
+            id: "1",
+            name: "Charlie",
+            dob: "2009/01/25",
+            address: "123 example St",
+            city: "Example City",
+            country: "Example Country",
+            phone: "123-456-7890"
+        },
         programs: [
             {
                 id: "1",
@@ -66,11 +75,28 @@ export default class Students extends Component {
     render(){
         const programs = this.state.programs;
         console.log(programs);
+        const {id, name, dob, address, city, country, phone} = this.state.student;
         return (
             <div className="student">
-                <h2>Student Details</h2>
+                <div className="student-details">
+                    <h2 className="student-details__header">Client Details</h2>
+
+                    <div className="student-details__container">
+                        <h3 className="student-details__label">Name: </h3>
+                        <p className="student-details__name">{name}</p>
+                    </div>
+                    <div className="student-details__container">
+                        <h3 className="student-details__label">Address: </h3>
+                        <p className="student-details__address">{address + ", " + city + ", "}</p>
+                        <p className="student-details__address">{country}</p>
+                    </div>
+                    <div className="student-details__container">
+                        <h3 className="student-details__label">Phone:</h3>
+                        <p className="student-details__contact">{phone}</p>
+                    </div>
+                </div>
                 <div className="student-programs">
-                    <h3>Programs</h3>
+                    <h3 className="student-programs__header">Programs</h3>
                     <ProgramList data={this.state.programs}/>
                 </div>
             </div>

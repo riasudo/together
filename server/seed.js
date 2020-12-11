@@ -23,6 +23,8 @@ const insertAllClients = async () => {
     })
 }
 
+// insertAllClients().then((res)=>console.log(res));
+
 // Insert Sample Programs from Seed_data
 const insertAllPrograms = async () => {
 

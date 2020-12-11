@@ -14,10 +14,10 @@ model Client {
   id         Int       @id @default(autoincrement())
   first_name String
   last_name  String
-  dob        Int
+  dob        String
   address    String
   country    String
-  phone      Int
+  phone      String
   Programs   Program[]
 }
 

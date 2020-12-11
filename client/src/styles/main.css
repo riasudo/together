@@ -152,4 +152,56 @@
 .program-details__label {
   padding: 1rem 0 0 0;
 }
+
+.student {
+  background-color: #373A40;
+  color: #EEEEEE;
+  margin: 0;
+  padding: 4rem 0;
+  min-height: 100vh;
+}
+
+.student-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 80%;
+  background-color: #686D76;
+  border-radius: 1rem 1rem 0 0;
+  margin: 0rem auto;
+  padding: 2rem;
+}
+
+.student-details__container {
+  width: 33%;
+  padding: 2rem 0 1rem 3rem;
+}
+
+.student-details__header {
+  width: 100%;
+}
+
+.student-programs {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #686D76;
+  border-radius: 0 0 1rem 1rem;
+  min-height: 60vh;
+}
+
+.student-programs__header {
+  padding: 2rem;
+}
 /*# sourceMappingURL=main.css.map */
