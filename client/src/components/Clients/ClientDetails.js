@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ProgramList from "../Programs/ProgramList";
+import ProgramDetails from "../Programs/ProgramDetails";
 
 import axios from "axios";
 const API_URL = `http://localhost:5000`
@@ -7,7 +8,8 @@ const API_URL = `http://localhost:5000`
 export default class Client extends Component {
     state= {
         client: {},
-        programs: []
+        programs: [],
+
     }
 
     componentDidMount(){
@@ -27,7 +29,7 @@ export default class Client extends Component {
     };
 
     getPrograms(){
-        const { params } = this.props.match
+        const { params } = this.props.match;
         axios.get(`${API_URL}/programs/clients/${params.id}`)
         .then((res)=>{
             this.setState({
@@ -37,10 +39,20 @@ export default class Client extends Component {
         .catch((err)=>console.log(err));
     };
 
+    getProgramById = (id) => {
+        axios.get(`${API_URL}/programs/${id}`)
+        .then((res)=> {
+            this.setState({
+                displayed: res.data
+            })
+        })
+        .catch((err)=>console.log(err));
+    }
+
     render(){
         const programs = this.state.programs;
         console.log(programs);
-        console.log(this.props.match);
+        // console.log(this.props.match);
         const {id, first_name, last_name, dob, address, city, country, phone} = this.state.client;
         return (
             <div className="client">
@@ -63,7 +75,10 @@ export default class Client extends Component {
                 </div>
                 <div className="client-programs">
                     <h3 className="client-programs__header">Programs</h3>
-                    <ProgramList data={this.state.programs}/>
+                    <ProgramList data={this.state.programs} onClick={this.getProgramById}/>
+                </div>
+                <div className="program-details">
+
                 </div>
             </div>
         )
