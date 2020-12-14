@@ -1,5 +1,5 @@
 import Landing from "./components/Landing";
-import Student from "./components/Students/StudentDetails";
+import Client from "./components/Clients/ClientDetails";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,8 +14,9 @@ function App() {
     <Router>
 
       <Switch>
-        <Route path="/" exact component={Landing} />
-        <Route path="/student/:id" exact component={Student}/>
+        <Redirect exact path="/" to="/clients"/>
+        <Route path="/clients" exact component={Landing} />
+        <Route path="/clients/:id" exact component={Client}/>
         <Route path="/program/:id" component={ProgramDetails}/>
 
       </Switch>

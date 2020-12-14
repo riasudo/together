@@ -1,38 +1,38 @@
 import React, {Component} from "react";
-import StudentCard from "./Students/StudentCard";
+import ClientCard from "./Clients/ClientCard";
+// import { getClients } from "./Axios/AxiosCalls";
+import axios from "axios";
+const API_URL = `http://localhost:5000`
 
 export default class Landing extends Component {
     state = {
-        students: [
-            {
-                id: "1",
-                name: "Charlie",
-                dob: "2009/01/25",
-                address: "123 example St",
-                city: "Example City",
-                country: "Example Country",
-                phone: "123-456-7890"
-            },
-            {
-                id: "2",
-                name: "Jane",
-                dob: "2004/01/25",
-                address: "345 example St",
-                city: "Example City",
-                country: "Example Country",
-                phone: "012-345-6789"
-            }
-        ]
+        clients: []
     }
+
+
+    componentDidMount() {
+        this.getClients()
+    }
+
+    getClients = () => {
+        axios.get(`${API_URL}/clients`)
+        .then((res)=>{
+            this.setState({
+                clients: res.data
+            })
+        })
+        .catch((err)=>console.log(err));
+    };
+
     render(){
-        const studentList = this.state.students;
+        const clientList = this.state.clients;
         return(
             <div className="landing-page">
                 <h2 className="landing-page__header">Who are we working with today?</h2>
-                <ul className="student-list">
-                {studentList && studentList.map((student)=>{
+                <ul className="client-list">
+                {clientList && clientList.map((client)=>{
                     return(
-                        <StudentCard data={student} key={student.id}/>
+                        <ClientCard data={client} key={client.id}/>
                     )
                 })}
                 </ul>

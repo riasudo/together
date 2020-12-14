@@ -65,7 +65,7 @@
   border-bottom: 2px #19D3DA solid;
 }
 
-.student-list {
+.client-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,7 +84,7 @@
   padding: 3rem 0 20rem;
 }
 
-.student-card {
+.client-card {
   margin: 0 2em;
   background-color: #EEEEEE;
   height: 5rem;
@@ -153,7 +153,7 @@
   padding: 1rem 0 0 0;
 }
 
-.student {
+.client {
   background-color: #373A40;
   color: #EEEEEE;
   margin: 0;
@@ -161,7 +161,7 @@
   min-height: 100vh;
 }
 
-.student-details {
+.client-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -184,16 +184,16 @@
   padding: 2rem;
 }
 
-.student-details__container {
+.client-details__container {
   width: 33%;
   padding: 2rem 0 1rem 3rem;
 }
 
-.student-details__header {
+.client-details__header {
   width: 100%;
 }
 
-.student-programs {
+.client-programs {
   width: 80%;
   margin: 0 auto;
   background-color: #686D76;
@@ -201,7 +201,7 @@
   min-height: 60vh;
 }
 
-.student-programs__header {
+.client-programs__header {
   padding: 2rem;
 }
 /*# sourceMappingURL=main.css.map */

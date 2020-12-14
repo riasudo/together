@@ -13,14 +13,14 @@
     }
 }
 
-.student-list {
+.client-list {
     @include flex (row, center, center);
     list-style-type: none;
     width: 60%;
     padding: 3rem 0 20rem;
 }
 
-.student-card {
+.client-card {
     margin: 0 2em;
     background-color: $offwhite;
     height: 5rem;
