@@ -4,30 +4,30 @@ const programModel = require("../model/programs");
 const getAllPrograms = async (_req, res) => {
     await programModel.findAllPrograms()
         .then(async (programs)=>{
-            (!programs.length) 
+            (!programs) 
             ? res.status(400).json({ message: "There are no programs yet!"})
-            : res.status(200).send(program.data);
+            : res.status(200).send(programs);
         })
 };
 
 // find client's programs
 const getClientPrograms = async (req, res) => {
-    await programModel.findProgramByClient(req.body.client_id)
+    await programModel.findProgramByClient(parseInt(req.params.client_id))
         .then(async (programs) =>{
-            (!programs.length) 
+            (!programs) 
             ? res.status(400).json({ message: "There are no programs yet!"})
-            : res.status(200).send(program.data);
+            : res.status(200).send(programs);
         })
 };
 
 // find program by id
 // if req.body.id doesn't work maybe params.id?
 const getProgramById = async (req, res) => {
-    await programModel.findProgramById(req.body.id)
+    await programModel.findProgramById(parseInt(req.params.id))
         .then(async (programs) =>{
-            (!programs.length) 
+            (!programs) 
             ? res.status(400).json({ message: "That Program doesn't exist yet"})
-            : res.status(200).send(program.data);
+            : res.status(200).send(programs);
         })
 };
 
@@ -55,7 +55,7 @@ const createNewProgram = (req, res) => {
 
 const updateProgram = (req, res) => {
     if (
-        !req.body.client_id ||
+        !req.body.clientId ||
         !req.body.name ||
         !req.body.index ||
         !req.body.description ||
@@ -67,6 +67,7 @@ const updateProgram = (req, res) => {
             requiredProperties: ["client_id", "name", "index", "description", "category", "task"]
         });
     }
+    console.log(req.body)
     res.status(201).json(programModel.updateProgram(req.body.id, req.body));
 };
 

@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { parse } = require('uuid');
 const prisma = new PrismaClient();
 
 // add new client

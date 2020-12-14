@@ -27,7 +27,7 @@ const findProgramByClient = async (clientId) => {
 
     return await prisma.program.findMany({
         where: {
-            client_id: clientId,
+            clientId: clientId,
         }
     })
     .then((program)=>program)
