@@ -14,7 +14,7 @@ export default class Client extends Component {
         this.getClient();
         this.getPrograms();
     }
-    
+
     getClient(){
         const { params } = this.props.match
         axios.get(`${API_URL}/clients/${params.id}`)
@@ -41,7 +41,7 @@ export default class Client extends Component {
         const programs = this.state.programs;
         console.log(programs);
         console.log(this.props.match);
-        const {id, name, dob, address, city, country, phone} = this.state.client;
+        const {id, first_name, last_name, dob, address, city, country, phone} = this.state.client;
         return (
             <div className="client">
                 <div className="client-details">
@@ -49,7 +49,7 @@ export default class Client extends Component {
 
                     <div className="client-details__container">
                         <h3 className="client-details__label">Name: </h3>
-                        <p className="client-details__name">{name}</p>
+                        <p className="client-details__name">{first_name} {last_name}</p>
                     </div>
                     <div className="client-details__container">
                         <h3 className="client-details__label">Address: </h3>

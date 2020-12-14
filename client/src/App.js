@@ -17,7 +17,7 @@ function App() {
         <Redirect exact path="/" to="/clients"/>
         <Route path="/clients" exact component={Landing} />
         <Route path="/clients/:id" exact component={Client}/>
-        <Route path="/program/:id" component={ProgramDetails}/>
+        <Route path="/programs/:id" component={ProgramDetails}/>
 
       </Switch>
     </Router>
