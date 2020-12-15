@@ -40,11 +40,12 @@ const createNewProgram = (req, res) => {
         !req.body.index ||
         !req.body.description ||
         !req.body.category ||
-        !req.body.task
+        !req.body.task ||
+        !req.body.mastery
     ) {
         res.status(400).json({
             error: "Missing property in request body.",
-            requiredProperties: ["client_id", "name", "index", "description", "category", "task"]
+            requiredProperties: ["client_id", "name", "index", "description", "category", "task", "mastery"]
         });
     }
     res.status(201).json(programModel.createProgram(req.body));
@@ -60,11 +61,13 @@ const updateProgram = (req, res) => {
         !req.body.index ||
         !req.body.description ||
         !req.body.category ||
-        !req.body.task
+        !req.body.task ||
+        !req.body.mastery
+
     ) {
         res.status(400).json({
             error: "Cannot update, missing properties.",
-            requiredProperties: ["client_id", "name", "index", "description", "category", "task"]
+            requiredProperties: ["client_id", "name", "index", "description", "category", "task", "mastery"]
         });
     }
     console.log(req.body)

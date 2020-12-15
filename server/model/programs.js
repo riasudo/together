@@ -12,6 +12,7 @@ const createProgram = async (program) => {
             description: program.description,
             category: program.category,
             task: program.task,
+            mastery: program.Mastery
         }
     });
 };
@@ -60,6 +61,7 @@ const updateProgram = async (programId, update) => {
             description: update.description,
             category: update.category,
             task: update.task,
+            mastery: update.Mastery
         }
     })
 }

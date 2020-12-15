@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 
 const clientData = require("./seed_data/clients");
 const programData = require("./seed_data/programs");
+const notesData = require("./seed_data/programNotes");
 
 // Insert Sample Clients from Seed_data
 const insertAllClients = async () => {
@@ -37,6 +38,7 @@ const insertAllPrograms = async () => {
                 category: item.category,
                 description: item.description,
                 task: item.task,
+                mastery: item.mastery,
                 Client: {
                     connect: {
                         id: item.client_id
@@ -47,4 +49,24 @@ const insertAllPrograms = async () => {
     })
 }
 
-insertAllPrograms().then((res)=>console.log(res));
+// insertAllPrograms().then((res)=>console.log(res));
+
+// Insert Sample Program notes from seed_data
+const insertProgramNotes = async () => {
+    notesData.forEach(async (note)=>{
+
+        await prisma.programNotes.create({
+            data: {
+                comment: note.comment,
+                timestamp: note.timestamp,
+                Program: {
+                    connect: {
+                        id: note.programId
+                    }
+                }
+            }
+        }).then((res)=> console.log(res)).catch((err)=>console.log(err));
+    })
+}
+
+//  insertProgramNotes().then((res)=>console.log(res));

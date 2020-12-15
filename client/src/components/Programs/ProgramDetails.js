@@ -25,7 +25,7 @@ export default class ProgramDetails extends Component{
 
     render(){
         const {name, index, description, category, task, mastery} = this.state.program;
-        // const {requiredTrial, requiredCorrect, currentTrial, currentCorrect} = mastery;
+        console.log(mastery);
 
         return(
             <div className="program-details">
@@ -34,6 +34,12 @@ export default class ProgramDetails extends Component{
                     <p className="program-details__level">Current Progress: {index}</p>
                     <p className="program-details__category">{category}</p>
                 </div>
+                {(mastery && mastery)
+                    ?   <div className="program-details__completion">
+                            <p className="program-details__mastery">Mastery Requirements: {mastery.requiredCorrect + "/" + mastery.requiredTrials}</p>
+                            <p className="program-details__current">Current Completion: {mastery.currentCorrect + "/" + mastery.currentTrials}</p>
+                        </div>
+                    : <p> Loading... Please wait!</p>}
                 
                 <div className="program-details__info">
                     <h3 className="program-details__label">Goal: </h3>
@@ -46,3 +52,7 @@ export default class ProgramDetails extends Component{
         )
     }
 }
+
+/* 
+
+*/
