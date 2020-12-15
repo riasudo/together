@@ -21,7 +21,6 @@ const getClientPrograms = async (req, res) => {
 };
 
 // find program by id
-// if req.body.id doesn't work maybe params.id?
 const getProgramById = async (req, res) => {
     await programModel.findProgramById(parseInt(req.params.id))
         .then(async (programs) =>{

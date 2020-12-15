@@ -29,6 +29,9 @@ const findProgramByClient = async (clientId) => {
     return await prisma.program.findMany({
         where: {
             clientId: clientId,
+        },
+        include: {
+            ProgramNotes: true,
         }
     })
     .then((program)=>program)
@@ -41,6 +44,9 @@ const findProgramById = async (programId) => {
     return await prisma.program.findUnique({
         where: {
             id: programId
+        },
+        include: {
+            ProgramNotes: true,
         }
     })
     .then((program) => program)
