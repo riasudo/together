@@ -23,7 +23,6 @@ const getNotesByProgram = async (req, res) => {
 
 //find single note
 const getUniqueNote = async (req, res) => {
-    console.log("unique:", req);
     await noteModel.findUniqueNote(parseInt(req.params.id))
     .then(async(note)=>{
         (!note)

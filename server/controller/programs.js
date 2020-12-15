@@ -32,7 +32,6 @@ const getProgramById = async (req, res) => {
 
 // post a new program
 const createNewProgram = (req, res) => {
-    console.log(req);
     if (
         !req.body.client_id ||
         !req.body.name ||
