@@ -1,0 +1,80 @@
+.add-program{
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    width: 75%;
+    background-color: $offwhite;
+    border-radius: 1rem;
+    &__title {
+        padding: 3rem 1rem 1rem;
+        border-bottom: 0.125rem $teal solid;
+    }
+    &__input{
+        padding: 0.5rem 6.5rem 0.5rem 1rem;
+        margin: 0.5rem 1rem;
+        border-radius: 1rem;
+        outline: none;
+        border: #E7E7E7 1px solid;
+
+        &:focus {
+            border: $teal 0.125rem solid;
+        }
+
+        &--mastery{
+            padding: 0.5rem 1rem;
+        }
+    }
+    &__form{
+        @include flex (row, center, center);
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 2rem;
+    }
+    &__container{
+        width: 40%;
+    }
+    &__name{
+        @include flex(row, flex-start, center);
+        flex-wrap: wrap;
+    }
+    &__index{
+        @extend .add-program__name;
+    }
+    &__category{
+        @extend .add-program__name;
+    }
+    &__mastery{
+        @extend .add-program__name;
+        &--requiredTrials{
+            width: 20%;
+            margin: 0.5rem 5rem;
+        }
+        &--requiredCorrect{
+            width: 20%;
+            margin: 0.5rem 5.35rem;
+        }
+    }
+    &__description{
+        @extend .add-program__name;
+    }
+    &__task{
+        @extend .add-program__name;
+    }
+
+    &__button {
+        margin: 2rem;
+        padding: 1rem;
+        width: 30%;
+        border-radius: 1rem;
+        outline: none;
+        border: 0.25rem solid #E7E7E7;
+        background-color: $darkgrey;
+        color: white;
+    }
+}
+
+.input-label {
+    width: 70%;
+    padding: 0.5rem;
+    border-bottom: 0.125rem solid $teal;
+    margin: 1rem;
+}

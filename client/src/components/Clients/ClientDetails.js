@@ -3,12 +3,14 @@ import ProgramList from "../Programs/ProgramList";
 import ProgramDetails from "../Programs/ProgramDetails";
 
 import axios from "axios";
+import AddProgram from "../Programs/AddProgram";
 const API_URL = `http://localhost:5000`
 
 export default class Client extends Component {
     state= {
         client: {},
         programs: [],
+        toggle: [],
 
     }
 
@@ -39,20 +41,18 @@ export default class Client extends Component {
         .catch((err)=>console.log(err));
     };
 
-    getProgramById = (id) => {
-        axios.get(`${API_URL}/programs/${id}`)
-        .then((res)=> {
-            this.setState({
-                displayed: res.data
-            })
-        })
-        .catch((err)=>console.log(err));
-    }
+    toggleModal = (e, id) => {
+        console.log(this.state.toggle);
+        const newToggle = this.state.toggle;
+        //!newToggle[id]
+        this.setState({
+            toggle: newToggle,
+        });
+    };
 
     render(){
         const programs = this.state.programs;
-        console.log(programs);
-        // console.log(this.props.match);
+        console.log(programs)
         const {id, first_name, last_name, dob, address, city, country, phone} = this.state.client;
         return (
             <div className="client">
@@ -75,11 +75,12 @@ export default class Client extends Component {
                 </div>
                 <div className="client-programs">
                     <h3 className="client-programs__header">Programs</h3>
-                    <ProgramList data={this.state.programs} onClick={this.getProgramById}/>
+                    <ProgramList data={this.state.programs} handleToggle={this.toggleModal}/>
                 </div>
                 <div className="program-details">
-
+                    <ProgramDetails data={this.state.programs} toggle={this.state.toggle}/>
                 </div>
+                <AddProgram />
             </div>
         )
     }

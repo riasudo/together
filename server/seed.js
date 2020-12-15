@@ -69,4 +69,4 @@ const insertProgramNotes = async () => {
     })
 }
 
-//  insertProgramNotes().then((res)=>console.log(res));
+ insertProgramNotes().then((res)=>console.log(res));
