@@ -1,9 +1,40 @@
-.add-program{
+.toggle-add{
+    margin: 0rem 2rem 2rem;
+    padding: 0.75rem 2rem;
+    border-radius: 1rem;
+    border: #e7e7e7 1px solid;
+    color: white;
+    background-color: $darkgrey;
+
+    &:hover {
+        background-color: $teal;
+    }
+}
+
+
+.toggle-close {
+    outline: none;
+    border: none;
+    margin: 1rem;
+    color: white;
+    background-color: lightgray;
+    padding: 0.25rem .5rem;
+    border-radius: 1rem;
+    &:hover {
+        background-color: $darkgrey;
+    }
+}
+.addprogram{
     @include flex(row, center, center);
     flex-wrap: wrap;
-    width: 75%;
+    width: 70%;
     background-color: $offwhite;
     border-radius: 1rem;
+    position: absolute;
+    margin: 0 auto;
+    left: 15vw;
+    top: 20vh;
+
     &__title {
         padding: 3rem 1rem 1rem;
         border-bottom: 0.125rem $teal solid;
@@ -37,31 +68,31 @@
         flex-wrap: wrap;
     }
     &__index{
-        @extend .add-program__name;
+        @extend .addprogram__name;
     }
     &__category{
-        @extend .add-program__name;
+        @extend .addprogram__name;
     }
     &__mastery{
-        @extend .add-program__name;
-        &--requiredTrials{
+        @extend .addprogram__name;
+        &requiredTrials{
             width: 20%;
             margin: 0.5rem 5rem;
         }
-        &--requiredCorrect{
+        &requiredCorrect{
             width: 20%;
             margin: 0.5rem 5.35rem;
         }
     }
     &__description{
-        @extend .add-program__name;
+        @extend .addprogram__name;
     }
     &__task{
-        @extend .add-program__name;
+        @extend .addprogram__name;
     }
 
     &__button {
-        margin: 2rem;
+        margin: 2rem 1rem 2rem 0;
         padding: 1rem;
         width: 30%;
         border-radius: 1rem;

@@ -29,7 +29,7 @@ model Program {
   description  String
   task         String
   ProgramNotes ProgramNotes[]
-  Mastery      Json
+  mastery      Json
 
   Client   Client? @relation(fields: [clientId], references: [id])
   clientId Int?

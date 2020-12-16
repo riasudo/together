@@ -31,7 +31,7 @@ export default function ProgramDetailModal (props){
                     {ProgramNotes && ProgramNotes
                         .map((note)=>{
                             return (
-                                <li className="program-details__card">
+                                <li className="program-details__card" key={note.id}>
                                     <p className="program-details__card--comment">{note.comment}</p>
                                     <p className="program-details__card--date">{formatDate(note.timestamp)}</p>
                                 </li>

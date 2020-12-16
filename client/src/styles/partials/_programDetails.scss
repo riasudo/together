@@ -1,8 +1,9 @@
 .program-details{
+    width: 40%;
     &-card{
-        width: 40%;
+        width: 100%;
         list-style-type: none;
-        border-radius: 1rem;
+        // border-radius: 1rem;
         padding-bottom: 3rem;
         margin: 2rem 0;
         background-color: $offwhite;
@@ -22,15 +23,17 @@
     }
     &__name{
         width: 60%;
-        color: white;
+        color: #1D1D1D;
     }
     &__level{
         margin-left: auto;
-        color: white;
+        color: #1D1D1D;
+        margin: 0 0 0 2rem;
+
     }
     &__category{
         margin-left: auto;
-        color: white;
+        color: #1D1D1D;
 
     }
 
@@ -55,4 +58,11 @@
             list-style-type: none;  
         }
     }
+}
+
+.loading-details{
+    position: absolute;
+    top: 30rem;
+    left: 30rem;
+    color: #A1A1A1;
 }

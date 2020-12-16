@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { json } = require('express');
 const prisma = new PrismaClient();
 
 // make new program
@@ -6,13 +7,17 @@ const createProgram = async (program) => {
 
     return await prisma.program.create({
         data:  {
-            client_id: program.client_id,
+            Client: {
+                connect: {
+                    id: program.client_id,
+                }
+            },     
             name: program.name,
             index: program.index,
             description: program.description,
             category: program.category,
             task: program.task,
-            mastery: program.Mastery
+            mastery: program.mastery
         }
     });
 };
@@ -61,13 +66,17 @@ const updateProgram = async (programId, update) => {
             id: programId,
         },
         data: {
-            client_id: update.client_id,
+            Client: {
+                connect: {
+                    id: update.clientId,
+                }
+            },
             name: update.name,
             index: update.index,
             description: update.description,
             category: update.category,
             task: update.task,
-            mastery: update.Mastery
+            mastery: update.mastery
         }
     })
 }

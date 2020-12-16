@@ -1,0 +1,33 @@
+.client-programs{
+    background-color: white;
+    &-list{
+        @include flex(column, flex-start, flex-start);
+        max-width: 25%;
+        border-right: 2px #E7E7E7 solid;
+    }
+}
+
+.program-card{
+    list-style-type: none;
+    margin: 1rem;
+    padding: 1rem 2rem;
+
+    &:hover {
+        background-color: $teal;
+    }
+
+    &__heading{
+        text-decoration: none;
+        color: $darkgrey;
+    }
+}
+
+.program-details-card{
+    position: absolute;
+    width: 40%;
+
+    top: 20rem;
+    left: 30rem;
+    border-radius: 1rem;
+
+}
