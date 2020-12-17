@@ -11,6 +11,7 @@
     list-style-type: none;
     margin: 1rem;
     padding: 1rem 2rem;
+    width: 90%;
 
     &:hover {
         background-color: $teal;
@@ -24,10 +25,10 @@
 
 .program-details-card{
     position: absolute;
-    width: 40%;
+    width: 55%;
 
-    top: 20%;
-    left: 35%;
+    top: 15%;
+    left: 30%;
     border-radius: 1rem;
 
 }

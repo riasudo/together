@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 import ProgramList from "../Programs/ProgramList";
@@ -56,7 +57,6 @@ export default class Client extends Component {
         }
     }
 
-
     componentDidMount(){
         this.getClient();
         this.getPrograms();
@@ -89,6 +89,7 @@ export default class Client extends Component {
         const filteredProgram = this.state.programs.filter(programs => {
             return programs.id === id;
         });
+        
         this.setState({
             toggle: !this.state.toggle,
             currentProgram: filteredProgram[0],
@@ -208,19 +209,21 @@ export default class Client extends Component {
     render(){
         const programs = this.state.programs;
         console.log(programs)
-        const {id, first_name, last_name, address, city, country, phone} = this.state.client;
+        const {id, first_name, last_name, address, country, phone} = this.state.client;
         return (
             <div className="client">
                 <div className="client-details">
-                    <h2 className="client-details__header">Client Details</h2>
-
+                    <div className="client-details__title">
+                        <Link to="/" className="client-details__home">{"<"}</Link>
+                        <h2 className="client-details__header">Client Details</h2>                    
+                    </div>
                     <div className="client-details__container">
                         <h3 className="client-details__label">Name: </h3>
                         <p className="client-details__name">{first_name} {last_name}</p>
                     </div>
                     <div className="client-details__container">
                         <h3 className="client-details__label">Address: </h3>
-                        <p className="client-details__address">{address + ", " + city + ", "}</p>
+                        <p className="client-details__address">{address + ", "}</p>
                         <p className="client-details__address">{country}</p>
                     </div>
                     <div className="client-details__container">
@@ -239,7 +242,7 @@ export default class Client extends Component {
                     {(this.state.update)
                     ? <UpdateUniqueProgram data={this.state.currentProgram} toggleUpdate={this.toggleUpdate} handleUpdate={this.updateProgram}/>
                     : (this.state.toggle && this.state.currentProgram)
-                    ? <ProgramDetailModal data={this.state.currentProgram} options={this.state.options} series={this.state.series} toggleUpdate={this.toggleUpdate}/>     
+                    ? <ProgramDetailModal data={this.state.currentProgram} options={this.state.options} series={this.state.series} toggleUpdate={this.toggleUpdate} test={this.renderGraphData}/>     
                     : (this.state.addToggle)
                     ? null
                     :<p className="loading-details">Click a program to show details</p>

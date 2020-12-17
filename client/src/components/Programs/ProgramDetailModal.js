@@ -2,13 +2,14 @@ import ReactApexChart from "react-apexcharts";
 
 export default function ProgramDetailModal (props){
     const { name, index, category, mastery, description, task, ProgramNotes } = props.data;
-    console.log(ProgramNotes);
+
 
     const formatDate = (string) => {
         return new Date(string).toLocaleDateString();
     }
     return (
-        <li className="program-details-card">
+        <section className="program-details-card">
+            
             <div className="program-details__header">
                 <h2 className="program-details__name">{name}</h2>
                 <p className="program-details__level">Current Progress: {index}</p>
@@ -31,14 +32,15 @@ export default function ProgramDetailModal (props){
                 <p className="program-details__task">{task}</p>
             </div>
             <div className="program-details__notes">
-                <h3 className="program-details__notes--title">Notes:</h3>
+                <h3 className="program-details__label">Notes:</h3>
                 <ul className="program-details__notes-list">
                     {ProgramNotes && ProgramNotes
+                        .sort()
                         .map((note)=>{
                             return (
                                 <li className="program-details__card" key={note.id}>
-                                    <p className="program-details__card--comment">{note.comment}</p>
                                     <p className="program-details__card--date">{formatDate(note.timestamp)}</p>
+                                    <p className="program-details__card--comment">{note.comment}</p>
                                 </li>
                             );
                         })
@@ -47,7 +49,7 @@ export default function ProgramDetailModal (props){
                 </ul>
             </div>
             <button className="toggle-updateform" onClick={e=>{props.toggleUpdate(e)}}>RUN PROGRAM</button>
-        </li>
+        </section>
 
     )
 

@@ -1,6 +1,6 @@
 .toggle-add{
-    margin: 0rem 2rem 2rem;
-    padding: 0.75rem 2rem;
+    margin: 0rem 2rem 2rem 3rem;
+    padding: 1rem 2rem;
     border-radius: 1rem;
     border: #e7e7e7 1px solid;
     color: white;
@@ -11,29 +11,28 @@
     }
 }
 
-
 .toggle-close {
-    outline: none;
+    margin: 3rem 1rem 0 ;
+    background-color: white;
     border: none;
-    margin: 1rem;
-    color: white;
-    background-color: lightgray;
-    padding: 0.25rem .5rem;
+    font-size: large;
+    font-weight: bold;
+    border: none;
     border-radius: 1rem;
+    color: rgb(39, 250, 239);
+    padding: 1rem;
     &:hover {
-        background-color: $darkgrey;
+        background-color: $lightgrey;
     }
 }
 .addprogram{
-    @include flex(row, center, center);
+    @include flex(row, flex-start, center);
     flex-wrap: wrap;
-    width: 70%;
-    background-color: $offwhite;
-    border-radius: 1rem;
+    background-color: white;
     position: absolute;
     margin: 0 auto;
-    left: 15vw;
-    top: 20vh;
+    left: 30%;
+    top: 15%;
 
     &__title {
         padding: 3rem 1rem 1rem;
@@ -62,10 +61,14 @@
         @include flex (row, center, center);
         flex-wrap: wrap;
         width: 100%;
-        margin: 2rem;
     }
     &__container{
         width: 40%;
+        margin: 1rem 2rem;
+        &--mastery{
+            @include flex(row, flex-start, center);
+            flex-wrap: wrap;
+        }
     }
     &__name{
         @include flex(row, flex-start, center);
@@ -79,14 +82,7 @@
     }
     &__mastery{
         @extend .addprogram__name;
-        &--requiredTrials{
-            width: 30%;
-            margin: 0.5rem 3rem;
-        }
-        &--requiredCorrect{
-            width: 30%;
-            margin: 0.5rem 3rem;
-        }
+
     }
     &__description{
         @extend .addprogram__name;

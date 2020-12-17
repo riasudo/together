@@ -1,32 +1,96 @@
+@keyframes slidein {
+    from {
+        bottom: -20rem;
+    }
+    to {
+        bottom: 0rem;
+    }
+}
+
 .landing-page{
     @include flex(row, center, center);
     flex-wrap: wrap;
-    background-color: $darkgrey;
+    background-color: lightgrey;
+    // animation: main-glow 30s linear infinite alternate both;
+    height: 92vh;
+    overflow: hidden;
+    position: relative;
+    top: 8vh;
+    
+    &__image{
+        top: 8vh;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__hero{
+        height: 100%;
+        width: 100%;
+    }
 
-    &__header{
-        width: 60%;
-        padding: 20rem 0 2rem;
+    &__greeting{
+        position: absolute;
+        width: 100%;
+        bottom: 0rem;
         text-align: center;
-        color: $offwhite;
-        border-bottom: 2px $teal solid ;
+        padding: 6vh 0 ;
+        backdrop-filter: blur(0.25rem);
+        border-radius: 1rem 1rem;
+        animation-name: slidein;
+        animation-duration: 2.5s;
+        animation: slidein 2.5s linear none 0 normal both;
 
+    }
+    &__header{
+        padding: 0.5rem 0;
+        margin: 0 auto;
+        color: white;
+        border-bottom: 2px white solid ;
+        width: 35vw;
+        text-align: center;
+    }
+    
+    &__toggle {
+        background: white;
+        border: none;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;  
+        border-radius: 4rem;
+        font-weight: bold;
+        font-size: large;
+
+        &:hover{
+            background: $teal
+        }
+    }
+    &__menu{
+        position: absolute;
+        bottom: 0;
     }
 }
 
 .client-list {
     @include flex (row, center, center);
     list-style-type: none;
-    width: 60%;
-    padding: 3rem 0 20rem;
+    padding: 3rem 0 6rem;
+    margin: 0 auto;
+
 }
 
 .client-card {
     margin: 0 2em;
-    background-color: $offwhite;
+    background-color: white;
     height: 5rem;
     width: 5rem;
     text-align: center;
     padding: 3rem 0;
     border-radius: 1rem;
-    box-shadow: $teal 4px 4px;
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 4px;
+    &:hover {
+        background-color: $teal;
+    }
+
+    &--item{
+        text-decoration: none;
+        color: $darkgrey;
+    }
 }

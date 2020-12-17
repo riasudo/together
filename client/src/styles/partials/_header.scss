@@ -1,0 +1,36 @@
+.active {
+    border-bottom: rgba(0, 0, 0, 0.25) 1px solid;
+
+}
+.nav{
+    @include flex (row, space-between, center);
+    height: 8vh;
+    padding: 0 20vw;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+
+    &__home {
+        text-decoration: none;
+        font-weight: 900;
+        color: $darkgrey;
+    }
+
+    &__list {
+        @include flex (row, flex-start, center);
+
+        &--link{
+            border-right: rgba(0, 0, 0, 0.25) 1px solid;
+            border-radius: 1rem;
+            list-style-type: none;
+        }
+
+        &--item{
+            font-size: smaller;
+            text-decoration: none;
+            color: $darkgrey;
+            padding: 0.5rem 1rem;
+        }
+    }
+}

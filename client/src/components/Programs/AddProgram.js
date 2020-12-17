@@ -3,8 +3,8 @@ export default function AddProgram (props){
     return (
         <div className="modal-backdrop">
             <div className="addprogram">
+                <button className="toggle-close" onClick={e=>props.handleToggle(e)}>{"<"}</button>
                 <h2 className="addprogram__title">Create a New Program:</h2>
-                <button className="toggle-close" onClick={e=>props.handleToggle(e)}>X</button>
                 <form className="addprogram__form" onSubmit={(e, id)=>props.handlePost(e, props.clientId)}>
                     <section className="addprogram__container addprogram__container--name">
                         <label htmlFor="addprogram__name" className="addprogram__name input-label">Name of Program:</label>
@@ -22,7 +22,7 @@ export default function AddProgram (props){
                         <label htmlFor="addprogram__mastery--requiredTrials" className="addprogram__mastery--requiredTrials input-label"># Of Trials:</label>
                         <input autoComplete="off" htmlFor="addprogram__mastery--requiredTrials" id="addprogram__masteryRequiredTrials" className="addprogram__mastery--requiredTrials  addprogram__input addprogram__input--mastery" placeholder="i.e.: 5"/>
 
-                        <label htmlFor="addprogram__mastery--requiredCorrect" className="addprogram__mastery--requiredCorrect input-label"># Correct:</label>
+                        <label htmlFor="addprogram__mastery--requiredCorrect" className="addprogram__mastery--requiredCorrect input-label"># Correct Responses:</label>
                         <input autoComplete="off" htmlFor="addprogram__mastery--requiredCorrect" id="addprogram__masteryRequiredCorrect" className="addprogram__mastery--requiredCorrect  addprogram__input addprogram__input--mastery" placeholder="i.e.: 5"/>
                     </section>
                     <section className="addprogram__container addprogram__container--description">

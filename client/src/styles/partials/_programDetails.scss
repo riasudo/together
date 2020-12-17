@@ -1,72 +1,163 @@
 .program-details{
-    width: 50%;
+    width: max-content;
     &-card{
-        width: 100%;
-        list-style-type: none;
-        // border-radius: 1rem;
-        padding-bottom: 1rem;
-        margin: 2rem 0;
-        background-color: $offwhite;
-        box-shadow: #E7E7E7 0.5rem 0.5rem;
-
-        &list{
-            margin: 1rem 0;
-        }
+        margin: 1rem 0;
+        padding: 0rem 3rem 2rem;
     }
-
     &__header{
-        @include flex(row, space-around, center);
+        @include flex(row, flex-start, baseline);
         flex-wrap: wrap;
-        padding: 2rem;
-        background-color: $teal;
-        border-radius: 1rem 1rem 0 0;
+        padding: 1rem;
+        border-bottom: 1px $lightgrey solid;
+        margin: 1rem 0;
+
     }
     &__name{
         width: 60%;
-        color: #1D1D1D;
+        margin-top: 1rem;
     }
     &__level{
         margin-left: auto;
-        color: #1D1D1D;
-        margin: 0 0 0 2rem;
-
     }
     &__category{
-        margin-left: auto;
-        color: #1D1D1D;
-
+        width: 100%;
+        text-align: right;
     }
 
     &__completion{
-        padding: 1rem 2rem 0 ;
+        padding: 0.5rem 1rem;
     }
+
     &__info{
-        padding: 0rem 2rem;
-    }
-    &__label{
-        padding: 1rem 0 0 0;
+        @extend .program-details__completion;
     }
 
     &__notes{
-        
-        &--title{
-            padding: 1rem 2rem 0;
-        }
-
-        &-list{
-            padding: 0rem 2rem 1rem;
-            list-style-type: none;  
-        }
+        @extend .program-details__completion;
+        margin-bottom: 1rem;
     }
 
-    &__card{
+    &__card {
+        list-style-type: none;
         padding: 1rem 0;
+        border-bottom: 1px lightgray solid;
+    }
+
+    &__label {
+        border-bottom: $teal 1px solid;
+        padding: 0.5rem 0;
     }
 }
 
-.loading-details{
-    position: absolute;
-    top: 30rem;
-    left: 30rem;
-    color: #A1A1A1;
+.toggle-updateform{
+    width: 30%;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 1px lightgrey solid;
+    margin-left: 70%;
+    background-color: $darkgrey;
+    color: white;
+    &:hover {
+        background-color: $teal;
+    }
 }
+
+.toggle_update{
+    background-color: white;
+    border: none;
+    font-size: large;
+    font-weight: bold;
+    border: none;
+    border-radius: 1rem;
+    color: rgb(39, 250, 239);
+    padding: 1rem;
+    &:hover {
+        background-color: $lightgrey;
+    }
+}
+
+.updateProgramButton {
+    @extend .toggle-updateform;
+}
+
+// .program-details{
+//     width: 100%;
+//     &-card{
+//         list-style-type: none;
+//         // border-radius: 1rem;
+//         padding-bottom: 1rem;
+//         margin: 2rem 0;
+//         background-color: $offwhite;
+//         box-shadow: #E7E7E7 0.5rem 0.5rem;
+
+//         &list{
+//             margin: 1rem 0;
+//         }
+//     }
+
+//     &__header{
+//         @include flex(row, space-around, center);
+//         flex-wrap: wrap;
+//         padding: 2rem;
+//         background-color: $teal;
+//         border-radius: 1rem 1rem 0 0;
+//     }
+//     &__name{
+//         width: 60%;
+//         color: #1D1D1D;
+//     }
+//     &__level{
+//         margin-left: auto;
+//         color: #1D1D1D;
+//         margin: 0 0 0 2rem;
+
+//     }
+//     &__category{
+//         margin-left: auto;
+//         color: #1D1D1D;
+
+//     }
+
+//     &__completion{
+//         padding: 1rem 2rem 0 ;
+//     }
+//     &__info{
+//         padding: 0rem 2rem;
+//     }
+//     &__label{
+//         padding: 1rem 0 0 0;
+//     }
+
+//     &__notes{
+        
+//         &--title{
+//             padding: 1rem 2rem 0;
+//         }
+
+//         &-list{
+//             padding: 0rem 2rem 1rem;
+//             list-style-type: none;  
+//         }
+//     }
+
+//     &__card{
+//         padding: 1rem 0;
+//     }
+// }
+
+// .toggle-updateform{
+//     padding: 1rem 3rem;
+//     background-color: $darkgrey;
+//     color: white;
+//     border-radius: 1rem;
+//     outline: none;
+//     border: 1px $lightgrey solid;
+//     margin-left: 60%;
+// }
+
+// .loading-details{
+//     position: absolute;
+//     top: 30rem;
+//     left: 30rem;
+//     color: #A1A1A1;
+// }

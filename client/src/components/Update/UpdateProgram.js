@@ -8,9 +8,9 @@ export default function UpdateUniqueProgram (props){
         return new Date(string).toLocaleDateString();
     }
     return (
-        <form className="program-details-card-update" onSubmit={(e, program)=>props.handleUpdate(e, props.data)}>
+        <form className="program-details-card" onSubmit={(e, program)=>props.handleUpdate(e, props.data)}>
             <div className="program-details__header">
-                <button className="toggle_update" onClick={e=>{props.toggleUpdate(e)}}>GO BACK</button>
+                <button className="toggle_update" onClick={e=>{props.toggleUpdate(e)}}>{"<"}</button>
                 <h2 className="program-details__name">{name}</h2>
                 <p className="program-details__level">Current Progress: {index}</p>
                 <p className="program-details__category">{category}</p>

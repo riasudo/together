@@ -5,7 +5,7 @@ export default function ClientCard (props){
     console.log(props.data);
     return (
         <li className="client-card" key={id}>
-            <Link to={"/clients/"+ id}>{first_name}</Link>
+            <Link className="client-card--item" to={"/clients/"+ id}>{first_name}</Link>
         </li>
     )
 }

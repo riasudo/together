@@ -6,14 +6,15 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-
+import Header from "./components/Header";
 import ProgramDetails from './components/Programs/ProgramDetails';
 
 function App() {
   return (
     <Router>
-
+      <Header />
       <Switch>
+   
         <Redirect exact path="/" to="/clients"/>
         <Route path="/clients" exact component={Landing} />
         <Route path="/clients/:id" exact component={Client}/>

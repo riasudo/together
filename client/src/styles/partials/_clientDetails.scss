@@ -1,43 +1,63 @@
 .client {
-    background-color: #a1a1a1;
     color: rgba($color: #1d1d1d, $alpha: 1);
-    margin: 0;
-    padding: 4rem 0;
-    min-height: 100vh;
+    margin-top: 8vh;
+    min-height: 80vh;
     position: relative;
     &-details {
         @include flex(row, flex-start, baseline);
         flex-wrap: wrap;
-        width: 80%;
-        background-color: white;
-        border-radius: 1rem 1rem 0 0;
+        width: 100%;
+        background-color: beige;
         margin: 0rem auto;
-        padding: 2rem 2rem;
-        background-color: $teal;
+        padding: 2rem 4rem;
+
+        &__title{
+            @include flex (row, center, center);
+            width: 100%;
+            color: green;
+        }
+        &__home{
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            font-size: larger;
+            color: $darkgrey;
+            border-radius: 4rem;
+            &:hover {
+                background-color: $lightgrey;
+            }
+
+        }
 
         &__container {
-            width: 33%;
-            padding: 2rem 0 1rem 3rem;
+            width: 32%;
+            height: 20vh;
+            padding: 3rem;
+            border-right: lightgray 1px solid;
+
         }
         &__header {
             width: 100%;
         }
     }
     &-programs {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
-        background-color: $offwhite;
         border-radius: 0 0 1rem 1rem;
-        min-height: 100vh;
+        min-height: 180vh;
         padding: 1rem 0 4rem;
         &__header{
             padding: 2rem;
+            width: 20%;
+            margin-left: 2rem;
+
         }
         &-list{
             border-radius: 1rem;
             min-height: 80vh;
             max-height: 80vh;
             overflow: scroll;
+            margin-left: 1rem;
 
         }
     }   
