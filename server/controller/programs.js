@@ -69,7 +69,7 @@ const updateProgram = (req, res) => {
         });
     }
     console.log(req.body)
-    res.status(201).json(programModel.updateProgram(req.body.id, req.body));
+    res.status(201).json(programModel.updateProgram(req.body));
 };
 
 module.exports = {

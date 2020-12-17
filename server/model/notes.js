@@ -36,7 +36,11 @@ const findUniqueNote = async (noteId) => {
 const createNote = async (programNote) => {
     return await prisma.programNotes.create({
         data: {
-            programId: programNote.programId,
+            Program: {
+                connect: {
+                    id: programNote.programId
+                }
+            },
             comment: programNote.comment,
             timestamp: programNote.timestamp,            
         }
@@ -52,7 +56,6 @@ const updateNote = async (noteId, update) => {
         data: {
             programId: update.programId,
             comment: update.comment,
-            timestamp: update.timestamp, 
         },
     })
 };

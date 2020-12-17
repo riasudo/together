@@ -59,16 +59,16 @@ const findProgramById = async (programId) => {
 }
 
 // edit programs
-const updateProgram = async (programId, update) => {
+const updateProgram = async (update) => {
 
     return await prisma.program.update({
         where: {
-            id: programId,
+            id: update.programId,
         },
         data: {
             Client: {
                 connect: {
-                    id: update.clientId,
+                    id: update.client_id,
                 }
             },
             name: update.name,

@@ -58,7 +58,7 @@ const updateNote = (req, res) => {
             requiredProperties: ["programId", "comment", "timestamp"]
         });
     }
-    res.status(201).json(noteModel.updateNote(req.body.id, req.body));    
+    res.status(201).json(noteModel.updateNote( req.body));    
 };
 
 module.exports = {

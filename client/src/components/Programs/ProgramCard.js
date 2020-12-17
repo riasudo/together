@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function ProgramCard(props){
-    const {id, clientId, name, index, category} = props.data;
+    const {id, name, index, category} = props.data;
     return (
         <li className="program-card" key={id}>
             <Link to="#" className="program-card__heading" id={id} onClick={(e)=>{props.handleToggle(e, id)}}>

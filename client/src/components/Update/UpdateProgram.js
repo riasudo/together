@@ -1,37 +1,41 @@
-import ReactApexChart from "react-apexcharts";
 
-export default function ProgramDetailModal (props){
-    const { name, index, category, mastery, description, task, ProgramNotes } = props.data;
-    console.log(ProgramNotes);
+
+export default function UpdateUniqueProgram (props){
+    const { name, index, category, mastery, description, task, ProgramNotes} = props.data;
+    console.log(props.data);
 
     const formatDate = (string) => {
         return new Date(string).toLocaleDateString();
     }
     return (
-        <li className="program-details-card">
+        <form className="program-details-card-update" onSubmit={(e, program)=>props.handleUpdate(e, props.data)}>
             <div className="program-details__header">
+                <button className="toggle_update" onClick={e=>{props.toggleUpdate(e)}}>GO BACK</button>
                 <h2 className="program-details__name">{name}</h2>
                 <p className="program-details__level">Current Progress: {index}</p>
                 <p className="program-details__category">{category}</p>
             </div>
-            <div id="program-chart">
-                <ReactApexChart options={props.options} series={props.series} type="line" height={350}/>
-            </div>
-            {(mastery && mastery)
-                ?   <div className="program-details__completion">
-                        <p className="program-details__mastery">Mastery Requirements: {mastery.requiredCorrect + "/" + mastery.requiredTrials}</p>
-                        <p className="program-details__current">Current Completion: {mastery.currentCorrect + "/" + mastery.currentTrials}</p>
-                    </div>
-                : <p> Loading... Please wait!</p>}
-            
             <div className="program-details__info">
                 <h3 className="program-details__label">Goal: </h3>
                 <p className="program-details__goal">{description}</p>
                 <h3 className="program-details__label">Task: </h3>
                 <p className="program-details__task">{task}</p>
             </div>
+            {(mastery && mastery)
+                ?   <div className="program-details__completion">
+                        <p className="program-details__mastery">Mastery Requirements: {mastery.requiredCorrect + "/" + mastery.requiredTrials}</p>
+                        <p className="program-details__current">Current Completion:
+                        <input htmlFor="program-details__masteryUpdate" id="program_currentCorrect" defaultValue={mastery.currentCorrect}/> 
+                        /
+                        <input htmlFor="program-details__masteryUpdate" id="program_currentTrials" defaultValue={mastery.currentTrials}/> 
+
+                        </p>
+                    </div>
+                : <p> Loading... Please wait!</p>}
+            
             <div className="program-details__notes">
                 <h3 className="program-details__notes--title">Notes:</h3>
+                <textarea id="program_createNewNote" htmlFor="program_createNewNote" placeholder="Program Notes and Observations..."/>
                 <ul className="program-details__notes-list">
                     {ProgramNotes && ProgramNotes
                         .map((note)=>{
@@ -46,10 +50,8 @@ export default function ProgramDetailModal (props){
                     
                 </ul>
             </div>
-            <button className="toggle-updateform" onClick={e=>{props.toggleUpdate(e)}}>RUN PROGRAM</button>
-        </li>
+            <button className="updateProgramButton">DONE</button>
 
+        </form>
     )
-
 }
-

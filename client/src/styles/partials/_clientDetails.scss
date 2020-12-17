@@ -33,5 +33,12 @@
         &__header{
             padding: 2rem;
         }
+        &-list{
+            border-radius: 1rem;
+            min-height: 80vh;
+            max-height: 80vh;
+            overflow: scroll;
+
+        }
     }   
 }

@@ -40,14 +40,18 @@
         border-bottom: 0.125rem $teal solid;
     }
     &__input{
-        padding: 0.5rem 6.5rem 0.5rem 1rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
         margin: 0.5rem 1rem;
         border-radius: 1rem;
         outline: none;
-        border: #E7E7E7 1px solid;
-
+        border: #E7E7E7 0.125rem solid;
+        width: 70%;
         &:focus {
             border: $teal 0.125rem solid;
+        }
+
+        &:hover {
+            border: 0.125rem $lightgrey solid;
         }
 
         &--mastery{
@@ -75,13 +79,13 @@
     }
     &__mastery{
         @extend .addprogram__name;
-        &requiredTrials{
-            width: 20%;
-            margin: 0.5rem 5rem;
+        &--requiredTrials{
+            width: 30%;
+            margin: 0.5rem 3rem;
         }
-        &requiredCorrect{
-            width: 20%;
-            margin: 0.5rem 5.35rem;
+        &--requiredCorrect{
+            width: 30%;
+            margin: 0.5rem 3rem;
         }
     }
     &__description{
@@ -100,6 +104,10 @@
         border: 0.25rem solid #E7E7E7;
         background-color: $darkgrey;
         color: white;
+
+        &:hover {
+            background-color: $teal;
+        }
     }
 }
 

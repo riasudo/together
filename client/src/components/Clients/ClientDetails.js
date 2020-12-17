@@ -1,9 +1,14 @@
 import React, {Component} from "react";
-import ProgramList from "../Programs/ProgramList";
-import ProgramDetails from "../Programs/ProgramDetails";
-import ProgramDetailModal from "../Programs/ProgramDetailModal";
 import axios from "axios";
+
+
+import ProgramList from "../Programs/ProgramList";
+import ProgramDetailModal from "../Programs/ProgramDetailModal";
 import AddProgram from "../Programs/AddProgram";
+
+import UpdateUniqueProgram from "../Update/UpdateProgram";
+
+
 const API_URL = `http://localhost:5000`
 
 export default class Client extends Component {
@@ -12,9 +17,45 @@ export default class Client extends Component {
         programs: [],
         toggle: false,
         currentProgram: {},
-        addToggle: false
+        addToggle: false,
+        update: false,
 
+        series: [
+            {
+                name: "Walk Nicely",
+                data: ["5", "5", "3", "4"],
+            }
+        ],
+        options: {
+            chart: {
+                height: 350,
+                type: "line",
+                zoom: {
+                    enabled: false,
+                }
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                curve: "straight"
+            },
+            title: {
+                text: "Behaviour Trends per Program by Level",
+                align: "center"
+            },
+            grid: {
+                row: {
+                    colors: [`#F3F3F3`, `transparent`],
+                    opacity: 0.5,
+                }
+            },
+            xaxis: {
+                categories: ["A", "B", "C", "D"]
+            }
+        }
     }
+
 
     componentDidMount(){
         this.getClient();
@@ -63,6 +104,13 @@ export default class Client extends Component {
         });
     };
 
+    toggleUpdate = (e) => {
+        this.setState({
+            addToggle: false,
+            update: !this.state.update
+        })
+    }
+
     postNewProgram = (event, clientId) => {
         const form = event.target;
         if (
@@ -105,6 +153,58 @@ export default class Client extends Component {
 
     }
 
+    updateProgram = (event, program) => {
+        event.preventDefault();
+        const form = event.target;
+        console.log(form.program_currentCorrect.value);
+        console.log(form.program_currentTrials.value);
+        console.log(program);
+        console.log(form.program_createNewNote.value);
+
+        if(
+            !form.program_createNewNote.value === "" ||
+            !form.program_currentCorrect.value === "" ||
+            !form.program_currentTrials.value === ""
+        ) {
+            alert("Please fill in all fields to run this program.")
+        } else {
+            const update = {
+                id: program.id,
+                client_id: program.clientId,
+                name: program.name,
+                index: program.index, 
+                description: program.description,
+                category: program.category,
+                task: program.task,
+                mastery: {
+                    requiredTrials: program.mastery.requiredTrials.value,
+                    requiredCorrect: program.mastery.requiredCorrect.value,
+                    currentTrials: form.program_currentTrials,
+                    currentCorrect: form.program_currentCorrect
+                }
+            }
+            const newNote = {
+                programId: program.id,
+                comment: form.program_createNewNote.value,
+            }
+            axios
+            .put(`${API_URL}/programs/${program.id}`, update)
+            .then((res)=>{
+                console.log(res);
+            })
+            .catch((err)=>{
+                console.log(err);
+            });
+            axios.post(`${API_URL}/programs/${program.id}`, newNote)
+            .then((res)=>{
+                console.log(res);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        }
+    }
+
     render(){
         const programs = this.state.programs;
         console.log(programs)
@@ -136,15 +236,19 @@ export default class Client extends Component {
                     <ProgramList data={this.state.programs} handleToggle={this.toggleModal}/>
                 </div>
                 <div className="program-details">
-                    {(this.state.toggle && this.state.currentProgram)
-                    ? <ProgramDetailModal data={this.state.currentProgram}/>       
+                    {(this.state.update)
+                    ? <UpdateUniqueProgram data={this.state.currentProgram} toggleUpdate={this.toggleUpdate} handleUpdate={this.updateProgram}/>
+                    : (this.state.toggle && this.state.currentProgram)
+                    ? <ProgramDetailModal data={this.state.currentProgram} options={this.state.options} series={this.state.series} toggleUpdate={this.toggleUpdate}/>     
                     : (this.state.addToggle)
                     ? null
                     :<p className="loading-details">Click a program to show details</p>
-                    }    
+                }    
                 </div>
                 
+                
             </div>
+
         )
     }
 }
