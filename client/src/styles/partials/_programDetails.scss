@@ -2,7 +2,7 @@
     width: max-content;
     &-card{
         margin: 1rem 0;
-        padding: 0rem 3rem 2rem;
+        padding: 0rem 3rem 2rem 5rem;
     }
     &__header{
         @include flex(row, flex-start, baseline);
@@ -47,6 +47,14 @@
         border-bottom: $teal 1px solid;
         padding: 0.5rem 0;
     }
+
+    &__goal{
+        margin: 0.5rem 0;
+    }
+
+    &__task{
+        margin: 0.5rem 0;
+    }
 }
 
 .toggle-updateform{
@@ -68,9 +76,10 @@
     font-size: large;
     font-weight: bold;
     border: none;
-    border-radius: 1rem;
+    border-radius: 4rem;
     color: rgb(39, 250, 239);
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 0 0;
     &:hover {
         background-color: $lightgrey;
     }
@@ -80,6 +89,58 @@
     @extend .toggle-updateform;
 }
 
+#program_currentCorrect {
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: 5vw;
+    border: 1px #A1A1A1 solid;
+    outline: none;
+
+    &:hover {
+        border: 1px $teal solid;
+    }
+
+    &:focus {
+        border: 1px $teal solid;
+    }
+}
+
+#program_currentTrials{
+    @extend #program_currentCorrect;
+}
+
+::placeholder {
+    color: #A1A1A1;
+}
+
+.run{
+    &__goal{
+        margin: 0 3rem;
+    }
+    &__completion{
+        @extend .run__goal;
+    }
+    &__notes{
+        @extend .run__goal;
+    }
+}
+
+#program_createNewNote{
+    margin: 1rem 3rem;
+    padding: 1rem 2rem;
+    width: 80%;
+    outline: none;
+    border: 1px lightgrey solid;
+    border-radius: 1rem;
+
+    &:hover {
+        border: 1px solid $teal;
+    }
+    &:focus {
+        border: 1px $teal solid;
+    }
+}
 // .program-details{
 //     width: 100%;
 //     &-card{

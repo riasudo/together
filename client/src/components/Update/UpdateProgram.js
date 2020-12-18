@@ -2,8 +2,17 @@
 
 export default function UpdateUniqueProgram (props){
     const { name, index, category, mastery, description, task, ProgramNotes} = props.data;
-    console.log(props.data);
 
+    const compare = (a, b) => {
+        if (a.timestamp < b.timestamp){
+            return -1;
+        } if (a.timestamp > b.timestamp){
+            return 1;
+        } else {
+            return 0
+        };
+    };
+    ProgramNotes.sort(compare);
     const formatDate = (string) => {
         return new Date(string).toLocaleDateString();
     }
@@ -15,14 +24,14 @@ export default function UpdateUniqueProgram (props){
                 <p className="program-details__level">Current Progress: {index}</p>
                 <p className="program-details__category">{category}</p>
             </div>
-            <div className="program-details__info">
+            <div className="program-details__info run__goal">
                 <h3 className="program-details__label">Goal: </h3>
                 <p className="program-details__goal">{description}</p>
                 <h3 className="program-details__label">Task: </h3>
                 <p className="program-details__task">{task}</p>
             </div>
             {(mastery && mastery)
-                ?   <div className="program-details__completion">
+                ?   <div className="program-details__completion run__completion">
                         <p className="program-details__mastery">Mastery Requirements: {mastery.requiredCorrect + "/" + mastery.requiredTrials}</p>
                         <p className="program-details__current">Current Completion:
                         <input htmlFor="program-details__masteryUpdate" id="program_currentCorrect" defaultValue={mastery.currentCorrect}/> 
@@ -33,8 +42,9 @@ export default function UpdateUniqueProgram (props){
                     </div>
                 : <p> Loading... Please wait!</p>}
             
-            <div className="program-details__notes">
+            <div className="program-details__notes run__notes">
                 <h3 className="program-details__notes--title">Notes:</h3>
+                
                 <textarea id="program_createNewNote" htmlFor="program_createNewNote" placeholder="Program Notes and Observations..."/>
                 <ul className="program-details__notes-list">
                     {ProgramNotes && ProgramNotes

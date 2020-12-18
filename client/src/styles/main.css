@@ -134,7 +134,11 @@
 
 .landing-page__menu {
   position: absolute;
+  width: 100%;
+  padding: 4vh 0 10vh;
   bottom: 0;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
 }
 
 .client-list {
@@ -156,25 +160,21 @@
   margin: 0 auto;
 }
 
-.client-card {
+.client-card--item {
+  text-decoration: none;
+  color: #373A40;
   margin: 0 2em;
   background-color: white;
-  height: 5rem;
-  width: 5rem;
+  padding: 2rem 1rem;
+  height: 3rem;
   text-align: center;
-  padding: 3rem 0;
   border-radius: 1rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 4px 4px;
           box-shadow: rgba(0, 0, 0, 0.25) 4px 4px;
 }
 
-.client-card:hover {
+.client-card--item:hover {
   background-color: #67b4fd;
-}
-
-.client-card--item {
-  text-decoration: none;
-  color: #373A40;
 }
 
 .active {
@@ -246,7 +246,7 @@
 
 .program-details-card {
   margin: 1rem 0;
-  padding: 0rem 3rem 2rem;
+  padding: 0rem 3rem 2rem 5rem;
 }
 
 .program-details__header {
@@ -303,6 +303,14 @@
   padding: 0.5rem 0;
 }
 
+.program-details__goal {
+  margin: 0.5rem 0;
+}
+
+.program-details__task {
+  margin: 0.5rem 0;
+}
+
 .toggle-updateform, .updateProgramButton {
   width: 30%;
   padding: 1rem 2rem;
@@ -323,13 +331,68 @@
   font-size: large;
   font-weight: bold;
   border: none;
-  border-radius: 1rem;
+  border-radius: 4rem;
   color: #27faef;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem 0 0;
 }
 
 .toggle_update:hover {
   background-color: #686D76;
+}
+
+#program_currentCorrect, #program_currentTrials {
+  margin: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 5vw;
+  border: 1px #A1A1A1 solid;
+  outline: none;
+}
+
+#program_currentCorrect:hover, #program_currentTrials:hover {
+  border: 1px #67b4fd solid;
+}
+
+#program_currentCorrect:focus, #program_currentTrials:focus {
+  border: 1px #67b4fd solid;
+}
+
+::-webkit-input-placeholder {
+  color: #A1A1A1;
+}
+
+:-ms-input-placeholder {
+  color: #A1A1A1;
+}
+
+::-ms-input-placeholder {
+  color: #A1A1A1;
+}
+
+::placeholder {
+  color: #A1A1A1;
+}
+
+.run__goal, .run__completion, .run__notes {
+  margin: 0 3rem;
+}
+
+#program_createNewNote {
+  margin: 1rem 3rem;
+  padding: 1rem 2rem;
+  width: 80%;
+  outline: none;
+  border: 1px lightgrey solid;
+  border-radius: 1rem;
+}
+
+#program_createNewNote:hover {
+  border: 1px solid #67b4fd;
+}
+
+#program_createNewNote:focus {
+  border: 1px #67b4fd solid;
 }
 
 .client {
@@ -356,9 +419,11 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
-  background-color: beige;
+  background: url("../Assets/Images/capstone_hero.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.25)));
+  background: url("../Assets/Images/capstone_hero.jpg"), linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+  background-size: cover;
   margin: 0rem auto;
-  padding: 2rem 4rem;
+  padding: 2rem 10vw;
 }
 
 .client-details__title {
@@ -376,7 +441,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  color: green;
+  color: #373A40;
 }
 
 .client-details__home {
@@ -393,10 +458,13 @@
 }
 
 .client-details__container {
-  width: 32%;
-  height: 20vh;
+  width: 30%;
+  height: 15vh;
   padding: 3rem;
-  border-right: lightgray 1px solid;
+  margin: 0 auto;
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
+  border-radius: 1rem;
 }
 
 .client-details__header {
@@ -408,7 +476,7 @@
   margin: 0 auto;
   border-radius: 0 0 1rem 1rem;
   min-height: 180vh;
-  padding: 1rem 0 4rem;
+  padding: 1rem 5vw 4rem;
 }
 
 .client-programs__header {
@@ -445,9 +513,9 @@
   font-size: large;
   font-weight: bold;
   border: none;
-  border-radius: 1rem;
+  border-radius: 4rem;
   color: #27faef;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .toggle-close:hover {
@@ -479,7 +547,6 @@
 
 .addprogram__title {
   padding: 3rem 1rem 1rem;
-  border-bottom: 0.125rem #67b4fd solid;
 }
 
 .addprogram__input {

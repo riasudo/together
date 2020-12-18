@@ -2,7 +2,16 @@ import ReactApexChart from "react-apexcharts";
 
 export default function ProgramDetailModal (props){
     const { name, index, category, mastery, description, task, ProgramNotes } = props.data;
-
+    const compare = (a, b) => {
+        if (a.timestamp > b.timestamp){
+            return -1;
+        } if (a.timestamp < b.timestamp){
+            return 1;
+        } else {
+            return 0
+        };
+    };
+    ProgramNotes.sort(compare);
 
     const formatDate = (string) => {
         return new Date(string).toLocaleDateString();

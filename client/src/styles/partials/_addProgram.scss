@@ -18,9 +18,9 @@
     font-size: large;
     font-weight: bold;
     border: none;
-    border-radius: 1rem;
+    border-radius: 4rem;
     color: rgb(39, 250, 239);
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     &:hover {
         background-color: $lightgrey;
     }
@@ -36,7 +36,6 @@
 
     &__title {
         padding: 3rem 1rem 1rem;
-        border-bottom: 0.125rem $teal solid;
     }
     &__input{
         padding: 0.5rem 1rem 0.5rem 1rem;

@@ -7,14 +7,16 @@
         @include flex(row, flex-start, baseline);
         flex-wrap: wrap;
         width: 100%;
-        background-color: beige;
+        background: url("../Assets/Images/capstone_hero.jpg"), linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.25));
+
+        background-size: cover;
         margin: 0rem auto;
-        padding: 2rem 4rem;
+        padding: 2rem 10vw;
 
         &__title{
             @include flex (row, center, center);
             width: 100%;
-            color: green;
+            color: $darkgrey;
         }
         &__home{
             text-decoration: none;
@@ -28,13 +30,15 @@
             }
 
         }
-
+        
         &__container {
-            width: 32%;
-            height: 20vh;
+            width: 30%;
+            height: 15vh;
             padding: 3rem;
-            border-right: lightgray 1px solid;
+            margin: 0 auto;
+            backdrop-filter: blur(0.5rem);
 
+            border-radius: 1rem;
         }
         &__header {
             width: 100%;
@@ -45,7 +49,7 @@
         margin: 0 auto;
         border-radius: 0 0 1rem 1rem;
         min-height: 180vh;
-        padding: 1rem 0 4rem;
+        padding: 1rem 5vw 4rem;
         &__header{
             padding: 2rem;
             width: 20%;

@@ -54,7 +54,11 @@ const updateNote = async (noteId, update) => {
             id: noteId,
         },
         data: {
-            programId: update.programId,
+            Program: {
+                connect: {
+                    id: update.programId
+                }
+            },
             comment: update.comment,
         },
     })

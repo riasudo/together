@@ -52,7 +52,7 @@ export default class Client extends Component {
                 }
             },
             xaxis: {
-                categories: ["A", "B", "C", "D"]
+                categories: []
             }
         }
     }
@@ -85,20 +85,37 @@ export default class Client extends Component {
     };
 
     toggleModal = (e, id) => {
-        console.log(this.state.toggle);
+        const programs = this.state.programs;
         const filteredProgram = this.state.programs.filter(programs => {
             return programs.id === id;
         });
-        
+        const filteredName = programs.filter((program)=> program.name === filteredProgram[0].name);
+        const filteredIndexTotal = filteredName.map(program => {
+                return program.index;
+        });
+        const filteredCurrent = filteredName.map(program => {
+                return program.mastery.currentCorrect;
+        });      
+
         this.setState({
             toggle: !this.state.toggle,
             currentProgram: filteredProgram[0],
             toggleAdd: false,
+            series: [
+                {
+                    name: filteredProgram[0].name,
+                    data: filteredCurrent
+                }
+            ],
+            options: {
+                xaxis: {
+                    categories: filteredIndexTotal,
+                }
+            }
         });
     };
 
     toggleAdd = (e) => {
-        console.log(this.state.addToggle);
         this.setState({
             toggle: false,
             addToggle: !this.state.addToggle,
@@ -155,7 +172,6 @@ export default class Client extends Component {
     }
 
     updateProgram = (event, program) => {
-        event.preventDefault();
         const form = event.target;
         console.log(form.program_currentCorrect.value);
         console.log(form.program_currentTrials.value);
@@ -171,17 +187,17 @@ export default class Client extends Component {
         } else {
             const update = {
                 id: program.id,
-                client_id: program.clientId,
+                clientId: program.clientId,
                 name: program.name,
                 index: program.index, 
                 description: program.description,
                 category: program.category,
                 task: program.task,
                 mastery: {
-                    requiredTrials: program.mastery.requiredTrials.value,
-                    requiredCorrect: program.mastery.requiredCorrect.value,
-                    currentTrials: form.program_currentTrials,
-                    currentCorrect: form.program_currentCorrect
+                    requiredTrials: program.mastery.requiredTrials,
+                    requiredCorrect: program.mastery.requiredCorrect,
+                    currentTrials: form.program_currentTrials.value,
+                    currentCorrect: form.program_currentCorrect.value
                 }
             }
             const newNote = {
@@ -196,7 +212,7 @@ export default class Client extends Component {
             .catch((err)=>{
                 console.log(err);
             });
-            axios.post(`${API_URL}/programs/${program.id}`, newNote)
+            axios.post(`${API_URL}/notes/programs/${program.id}`, newNote)
             .then((res)=>{
                 console.log(res);
             })
@@ -206,9 +222,8 @@ export default class Client extends Component {
         }
     }
 
+    
     render(){
-        const programs = this.state.programs;
-        console.log(programs)
         const {id, first_name, last_name, address, country, phone} = this.state.client;
         return (
             <div className="client">
